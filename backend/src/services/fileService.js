@@ -3,7 +3,6 @@ import AppError from "../utils/AppError.js";
 import fs from "fs/promises";
 import path from "path";
 
-
 export const createFile = async (file, userId) => {
   const result = await File.create({
     originalName: file.originalname,
@@ -28,10 +27,7 @@ export const getUserFiles = async (userId, filters) => {
   };
 
   if (filters.search) {
-    const escapedSearch = filters.search.replace(
-      /[.*+?^${}()|[\]\\]/g,
-      "\\$&"
-    );
+    const escapedSearch = filters.search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
     filter.originalName = {
       $regex: escapedSearch,
@@ -56,10 +52,7 @@ export const getUserFiles = async (userId, filters) => {
       }
 
       if (limit > MAX_LIMIT) {
-        throw new AppError(
-          `limit cannot be greater than ${MAX_LIMIT}`,
-          400
-        );
+        throw new AppError(`limit cannot be greater than ${MAX_LIMIT}`, 400);
       }
     }
 
@@ -96,26 +89,36 @@ export const getUserFiles = async (userId, filters) => {
   };
 };
 
+export const getFile = async (id, userId) => {
+  const file = await File.findOne({
+    _id: id,
+    owner: userId,
+  });
 
-export const removeFile = async (id, userId) => {
-    const result = await getFile(id, userId);
+  if (!file) {
+    throw new AppError("File Not Found", 404);
+  }
 
-    const filePath = path.join(process.cwd(), result.path);
-
-    try {
-        await fs.unlink(filePath);
-    } catch (error) {
-        if (error.code !== "ENOENT") {
-            throw error;
-        }
-    }
-
-    await File.findByIdAndDelete(id);
-
-    return result;
+  return file;
 };
 
+export const removeFile = async (id, userId) => {
+  const result = await getFile(id, userId);
 
+  const filePath = path.join(process.cwd(), result.path);
+
+  try {
+    await fs.unlink(filePath);
+  } catch (error) {
+    if (error.code !== "ENOENT") {
+      throw error;
+    }
+  }
+
+  await File.findByIdAndDelete(id);
+
+  return result;
+};
 
 export const searchFiles = async (query, userId) => {
   return await File.find({
