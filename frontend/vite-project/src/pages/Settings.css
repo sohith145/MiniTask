@@ -1,0 +1,176 @@
+.settings-page {
+min-height: 100vh;
+background-color: #f8f7fa;
+}
+
+.settings-layout {
+display: flex;
+min-height: calc(100vh - 70px);
+}
+
+.settings-content {
+flex: 1;
+min-width: 0;
+padding: 40px;
+}
+
+.settings-header {
+margin-bottom: 32px;
+}
+
+.settings-header h1 {
+margin: 0 0 8px;
+font-size: 28px;
+font-weight: 700;
+color: #08060d;
+}
+
+.settings-header p {
+margin: 0;
+font-size: 15px;
+color: #6b6375;
+}
+
+.settings-profile-card {
+max-width: 800px;
+padding: 32px;
+background-color: #ffffff;
+border: 1px solid #e5e4e7;
+border-radius: 12px;
+box-shadow: 0 4px 16px rgba(8, 6, 13, 0.04);
+}
+
+.settings-section-header {
+margin-bottom: 28px;
+padding-bottom: 20px;
+border-bottom: 1px solid #e5e4e7;
+}
+
+.settings-section-header h2 {
+margin: 0 0 8px;
+font-size: 20px;
+font-weight: 600;
+color: #08060d;
+}
+
+.settings-section-header p {
+margin: 0;
+font-size: 14px;
+color: #6b6375;
+}
+
+.settings-form-group {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-bottom: 24px;
+}
+
+.settings-form-group label {
+font-size: 14px;
+font-weight: 600;
+color: #08060d;
+}
+
+.settings-form-group input {
+width: 100%;
+padding: 12px 14px;
+font: inherit;
+font-size: 14px;
+color: #08060d;
+background-color: #ffffff;
+border: 1px solid #e5e4e7;
+border-radius: 8px;
+outline: none;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-form-group input:focus {
+border-color: #aa3bff;
+box-shadow: 0 0 0 3px rgba(170, 59, 255, 0.12);
+}
+
+.settings-form-group input[readonly] {
+background-color: #f8f7fa;
+color: #6b6375;
+cursor: default;
+}
+
+.settings-actions {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-top: 32px;
+}
+
+.settings-actions button {
+padding: 11px 22px;
+font: inherit;
+font-size: 14px;
+font-weight: 600;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.settings-edit-btn,
+.settings-save-btn {
+color: #ffffff;
+background-color: #aa3bff;
+border: 1px solid #aa3bff;
+}
+
+.settings-edit-btn:hover,
+.settings-save-btn:hover {
+background-color: #9225e6;
+border-color: #9225e6;
+}
+
+.settings-cancel-btn {
+color: #6b6375;
+background-color: #ffffff;
+border: 1px solid #e5e4e7;
+}
+
+.settings-cancel-btn:hover {
+background-color: #f8f7fa;
+border-color: #c9c5ce;
+}
+
+.settings-actions button:focus-visible {
+outline: 3px solid rgba(170, 59, 255, 0.25);
+outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+.settings-content {
+padding: 24px 20px;
+}
+
+.settings-profile-card {
+padding: 24px 20px;
+}
+
+.settings-header h1 {
+font-size: 24px;
+}
+}
+
+@media (max-width: 480px) {
+.settings-content {
+padding: 20px 14px;
+}
+
+.settings-profile-card {
+padding: 20px 16px;
+}
+
+.settings-actions {
+flex-direction: column;
+align-items: stretch;
+}
+
+.settings-actions button {
+width: 100%;
+}
+}

@@ -1,0 +1,176 @@
+.upload-file-page {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.upload-file-layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.upload-file-content {
+  flex: 1;
+  padding: 32px;
+}
+
+.upload-file-header {
+  margin-bottom: 28px;
+}
+
+.upload-file-header h1 {
+  margin: 0 0 6px;
+  color: #08060d;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.upload-file-header p {
+  margin: 0;
+  color: #6b6375;
+  font-size: 14px;
+}
+
+.upload-file-card {
+  width: 100%;
+  max-width: 720px;
+  padding: 32px;
+  border: 1px solid #e5e4e7;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.upload-file-picker {
+  padding: 40px 24px;
+  border: 2px dashed #e5e4e7;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.upload-file-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #f1e4ff;
+  color: #aa3bff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.upload-file-picker h2 {
+  margin: 0 0 8px;
+  color: #08060d;
+  font-size: 18px;
+}
+
+.upload-file-picker p {
+  margin: 0 0 20px;
+  color: #6b6375;
+  font-size: 14px;
+}
+
+.choose-file-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 7px;
+  background: #aa3bff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.choose-file-btn:hover {
+  opacity: 0.9;
+}
+
+.file-input {
+  display: none;
+}
+
+.selected-file {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border: 1px solid #e5e4e7;
+  border-radius: 8px;
+  background: #faf9fb;
+}
+
+.selected-file__label {
+  margin: 0 0 4px;
+  color: #6b6375;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.selected-file__name {
+  margin: 0;
+  color: #08060d;
+  font-size: 14px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.upload-file-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.cancel-file-btn,
+.submit-file-btn {
+  padding: 10px 16px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-file-btn {
+  border: 1px solid #e5e4e7;
+  background: #fff;
+  color: #6b6375;
+}
+
+.submit-file-btn {
+  border: none;
+  background: #aa3bff;
+  color: #fff;
+}
+
+.submit-file-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.submit-file-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .upload-file-content {
+    padding: 20px;
+  }
+
+  .upload-file-card {
+    padding: 20px;
+  }
+
+  .upload-file-picker {
+    padding: 32px 16px;
+  }
+
+  .upload-file-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-file-btn,
+  .submit-file-btn {
+    width: 100%;
+  }
+}
