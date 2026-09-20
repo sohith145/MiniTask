@@ -9,7 +9,8 @@ import fileRouter from "./routes/fileRoutes.js";
 import helmet from "helmet";
 import logger from "./middleware/loggerMiddleware.js";
 import searchRouter from "./routes/searchRoutes.js";
-
+import fs from "fs";
+import path from "path";
 const app = express();
 app.use(helmet());
 app.use(express.json());
@@ -23,6 +24,13 @@ app.use(
   }),
 );
 app.use(logger);
+
+const uploadsPath = path.join(process.cwd(), "uploads");
+
+if (!fs.existsSync(uploadsPath)) {
+  fs.mkdirSync(uploadsPath, { recursive: true });
+}
+
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to MiniTask API",
